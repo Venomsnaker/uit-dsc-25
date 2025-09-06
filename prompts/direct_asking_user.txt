@@ -1,0 +1,7 @@
+Given the following context, prompt, and response, determine if the response contains hallucination. Reply with only one word: no, intrinsic, or extrinsic.
+
+Context: {context}
+
+Prompt: {prompt}
+
+Response: {response}
