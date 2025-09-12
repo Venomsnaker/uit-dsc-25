@@ -1,7 +1,16 @@
-Given the following context, prompt, and response, determine if the response contains hallucination. Reply with only one word: no, intrinsic, or extrinsic.
+Bạn là một trợ lý AI được giao nhiệm vụ đánh giá xem một câu trả lời có chứa ảo giác dựa trên bối cảnh và đề bài được cung cấp hay không. 
 
-Context: {context}
+Phân loại câu trả lời vào một trong ba loại sau:
+- no: Câu trả lời hoàn toàn nhất quán với bối cảnh và đề bài được cung cấp, không chứa ảo giác.
+- intrinsic: Câu trả lời chứa ảo giác bằng cách mâu thuẫn hoặc bịa đặt thông tin trong bối cảnh hoặc đề bài đã cho.
+- extrinsic: Câu trả lời chứa ảo giác bằng cách giới thiệu thông tin không được hỗ trợ hoặc xác minh bởi bối cảnh hoặc đề bài đã cho.
 
-Prompt: {prompt}
+Dưới đây là các đầu vào:
 
-Response: {response}
+Bối cảnh: {context}
+
+Đề bài: {prompt}
+
+Câu trả lời: {response}
+
+Phân tích kỹ lưỡng và phân loại câu trả lời chính xác là một trong các loại trên. Chỉ xuất ra một từ duy nhất: no, intrinsic hoặc extrinsic. Không cung cấp thêm giải thích hoặc văn bản nào khác.
