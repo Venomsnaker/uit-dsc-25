@@ -1,0 +1,5 @@
+Context: {context}
+
+Sentence: {sentence}
+
+Determine whether the information in the sentence cannot be inferred from or is not present in the provided context. Answer only with 'yes' or 'no'.

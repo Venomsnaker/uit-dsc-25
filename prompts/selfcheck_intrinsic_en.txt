@@ -1,0 +1,5 @@
+Context: {context}
+
+Sentence: {sentence}
+
+Determine whether the information in the sentence contradicts the provided context. Answer only with 'yes' or 'no'.

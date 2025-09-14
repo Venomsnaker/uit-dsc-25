@@ -1,0 +1,5 @@
+Ngữ cảnh: {context}
+
+Câu: {sentence}
+
+Xác định xem thông tin trong câu có mâu thuẫn với ngữ cảnh đã cho hay không. Chỉ trả lời bằng 'yes' hoặc 'no'.

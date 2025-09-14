@@ -1,0 +1,5 @@
+Ngữ cảnh: {context}
+
+Câu: {sentence}
+
+Câu này có được ngữ cảnh trên hỗ trợ không? Chỉ trả lời bằng 'yes' hoặc 'no'.
