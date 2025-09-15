@@ -6,6 +6,7 @@ class SelfCheckPrompt:
         model_name = 'Qwen/Qwen3-4B-Instruct-2507',
         intrinsic_prompt_path = '',
         extrinsic_prompt_path = '',
+        general_prompt_path = '',
     ):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name, dtype='auto', device_map='auto'
@@ -15,6 +16,8 @@ class SelfCheckPrompt:
             self.intrinsic_prompt_template = f.read()
         with open(extrinsic_prompt_path) as f:
             self.extrinsic_prompt_template = f.read()
+        with open(general_prompt_path) as f:
+            self.general_prompt_template = f.read()
         self.output_dict = {
             'yes': 1,
             'n/a': 0.5,
@@ -40,10 +43,10 @@ class SelfCheckPrompt:
     def _postprocess(self, response):
         response = response.lower().strip()
 
-        for output in self.output_dicts:
+        for output in self.output_dict:
             if output in response:
                 response = output
-        if response not in self.output_dicts.keys():
+        if response not in self.output_dict.keys():
             response = 'n/a'
         return self.output_dict[response]
 
@@ -53,6 +56,10 @@ class SelfCheckPrompt:
     
     def predict_extrinsic(self, context: str, sentence: str):
         prompt = self.extrinsic_prompt_template.format(context=context, sentence=sentence)
+        return self._postprocess(self._generate(prompt, max_new_tokens=4))
+    
+    def predict_hallucination(self, context: str, sentence: str):
+        prompt = self.general_prompt_template.format(context=context, sentence=sentence)
         return self._postprocess(self._generate(prompt, max_new_tokens=4))
 
 
